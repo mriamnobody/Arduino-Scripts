@@ -16,7 +16,7 @@ int wifi_connection() {
 
     // Determine the WiFi band of the AP
     int channel = WiFi.channel(i);
-    if (channel == 1 || channel == 2 || channel == 3 || channel == 4 || channel == 5 || channel == 6 || channel == 7 || channel == 8 || channel == 9 || channel == 10 || channel == 11 || channel == 12 || channel == 13) {
+    if (channel >= 1 && channel <= 13) {
       Serial.print(" 2.4 GHz");
     } else {
       Serial.print(" 5 GHz");
@@ -46,7 +46,7 @@ int wifi_connection() {
   while (WiFi.status() != WL_CONNECTED) {
     delay(50);
     Serial.print(".");
-    if (WiFi.status() == WL_CONNECT_FAILED){
+    if (WiFi.status() == WL_WRONG_PASSWORD || WiFi.status() == WL_CONNECT_FAILED){
       Serial.print("\nIncorrect password\n");
       return 0;
     } else if (WiFi.status() == WL_CONNECTED){
