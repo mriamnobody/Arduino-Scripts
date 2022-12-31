@@ -1,4 +1,4 @@
-# Arduino-Scripts
+# Arduino-Sketches
 
 Hello folks. These are list of Arduino sketches which I have created. 
 
